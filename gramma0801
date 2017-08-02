@@ -1,0 +1,54 @@
+BanA1 >> lexicon >> 0-01 >> \NP[+PL] >> copper alloys
+BanA1 >> lexicon >> 0-02 >> \NP[+PL] >> single crystals
+BanA1 >> lexicon >> 0-03 >> \NP[+PL] >> rods
+BanA1 >> lexicon >> 0-04 >> \NP[+PL] >> specimens
+BanA1 >> lexicon >> 0-05 >> \NP[+PL] >> characteristic transformation temperatures
+BanA1 >> lexicon >> 0-06 >> \NP[+PL] >> electrical resistivity measurements
+BanA1 >> lexicon >> 0-07 >> \Vt[PAS] >> made
+BanA1 >> lexicon >> 0-08 >> \Vt[PAS] >> prepared
+BanA1 >> lexicon >> 0-09 >> \Vt[PAS] >> cut
+BanA1 >> lexicon >> 0-10 >> \Vt[PAS] >> determined
+BanA1 >> lexicon >> 0-11 >> \AD >> out
+BanA1 >> lexicon >> 0-12 >> \Vt[G] >> containing
+BanA1 >> lexicon >> 0-13 >> \Vt[G] >> using
+BanA1 >> lexicon >> 0-14 >> \Vi[G] >> annealing
+BanA1 >> lexicon >> 0-15 >> \Vi[G] >> quenching
+BanA1 >> lexicon >> 0-16 >> \PREP >> in
+BanA1 >> lexicon >> 0-17 >> \PREP >> of
+BanA1 >> lexicon >> 0-18 >> \PREP >> at
+BanA1 >> lexicon >> 0-19 >> \PREP >> after
+BanA1 >> lexicon >> 0-20 >> \NP >> 20.8 at.% Al
+BanA1 >> lexicon >> 0-21 >> \NP >> 9.5 at.% Mn
+BanA1 >> lexicon >> 0-22 >> \NP >> 8 mm diameter
+BanA1 >> lexicon >> 0-23 >> \NP >> 80 mm length
+BanA1 >> lexicon >> 0-24 >> \NP >> the shape
+BanA1 >> lexicon >> 0-25 >> \NP >> the Bridgman method
+BanA1 >> lexicon >> 0-26 >> \NP >> water
+BanA1 >> lexicon >> 0-27 >> \NP >> 850176C
+BanA1 >> lexicon >> 0-28 >> \NP >> 55176C
+BanA1 >> lexicon >> 0-29 >> \NP >> a spark erosion machine
+BanA1 >> lexicon >> 0-30 >> \NP >> a DuPont thermal analyser
+BanA1 >>  syntax >>  1-01 >>  \S >> \S \ADP
+BanA1 >>  syntax >>  1-02 >>  \S >> \ADP \S
+BanA1 >>  syntax >>  1-03 >>  \S >> \NP[+PL] \VP[+FIN,+PL]
+BanA1 >>  syntax >>  1-04 >>  \VP[+FIN,+PL] >> were \VP[PAS]
+BanA1 >>  syntax >>  1-05 >>  \VP[PAS] >> \Vt[PAS]
+BanA1 >>  syntax >>  1-06 >>  \VP[PAS] >> \Vt[PAS] \AD
+BanA1 >>  syntax >>  1-19 >>  \VP[PAS] >> \Vt[PAS] \ADP
+BanA1 >>  syntax >>  1-07 >>  \VP[PAS] >> \VP[PAS] \NPby
+BanA1 >>  syntax >>  1-08 >>  \ADP >> \Vt[G] \NP
+BanA1 >>  syntax >>  1-09 >>  \ADP >> \PREP \NP
+BanA1 >>  syntax >>  1-10 >>  \NPby >> by \NP
+BanA1 >>  syntax >>  1-11 >>  \NP[+PL] >> \NP[+PL] \AP
+BanA1 >>  syntax >>  1-12 >>  \AP >> \Vt[G] \NP
+BanA1 >>  syntax >>  1-13 >>  \AP >> \PREP \NP
+BanA1 >>  syntax >>  1-14 >>  \NP >> \NP or \NP
+BanA1 >>  syntax >>  1-15 >>  \NP >> \NP \AP
+BanA1 >>  syntax >>  1-16 >>  \NP >> \NP[+PL]
+BanA1 >>  syntax >>  1-17 >>  \NP >> \Vi[G]
+BanA1 >>  syntax >>  1-18 >>  \NP[+PL] >> \NP and \NP
+
+Characteristic transformation temperatures were determined using electrical resistivity measurements or a DuPont thermal analyser . 
+After annealing at 850176C and quenching in water of 55176C specimens were cut out using a spark erosion machine . 
+Single crystals in the shape of rods of 8 mm diameter and 80 mm length were prepared using the Bridgman method . 
+Copper alloys containing 20.8 at.% Al and 9.5 at.% Mn were made .

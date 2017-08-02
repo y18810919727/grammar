@@ -1,0 +1,35 @@
+BanA1 >> lexicon >> 0-01 >> \NP[+PL] >> copper alloys
+BanA1 >> lexicon >> 0-02 >> \NP[+PL] >> single crystals
+BanA1 >> lexicon >> 0-03 >> \NP[+PL] >> rods
+BanA1 >> lexicon >> 0-04 >> \NP[+PL] >> specimens
+BanA1 >> lexicon >> 0-05 >> \NP[+PL] >> characteristic transformation temperatures
+BanA1 >> lexicon >> 0-06 >> \NP[+PL] >> electrical resistivity measurements
+BanA1 >> lexicon >> 0-07 >> \Vt[PAS] >> made
+BanA1 >> lexicon >> 0-08 >> \Vt[PAS] >> prepared
+BanA1 >> lexicon >> 0-09 >> \Vt[PAS] >> cut
+BanA1 >> lexicon >> 0-10 >> \Vt[PAS] >> determined
+BanA1 >> lexicon >> 0-11 >> \AD >> out
+BanA1 >> lexicon >> 0-12 >> \Vt[G] >> containing
+BanA1 >> lexicon >> 0-13 >> \Vt[G] >> using
+BanA1 >> lexicon >> 0-14 >> \Vi[G] >> annealing
+BanA1 >> lexicon >> 0-15 >> \Vi[G] >> quenching
+BanA1 >> lexicon >> 0-16 >> \PREP >> in
+BanA1 >> lexicon >> 0-17 >> \PREP >> of
+BanA1 >> lexicon >> 0-18 >> \PREP >> at
+BanA1 >> lexicon >> 0-19 >> \PREP >> after
+BanA1 >> lexicon >> 0-20 >> \NP >> 20.8 at.% Al
+BanA1 >> lexicon >> 0-21 >> \NP >> 9.5 at.% Mn
+BanA1 >> lexicon >> 0-22 >> \NP >> 8 mm diameter
+BanA1 >> lexicon >> 0-23 >> \NP >> 80 mm length
+BanA1 >> lexicon >> 0-24 >> \NP >> the shape
+BanA1 >> lexicon >> 0-25 >> \NP >> the Bridgman method
+BanA1 >> lexicon >> 0-26 >> \NP >> water
+BanA1 >> lexicon >> 0-27 >> \NP >> 850176C
+BanA1 >> lexicon >> 0-28 >> \NP >> 55176C
+BanA1 >> lexicon >> 0-29 >> \NP >> a spark erosion machine
+BanA1 >> lexicon >> 0-30 >> \NP >> a DuPont thermal analyser
+BanA1 >> lexicon >> 0-31 >> \CONJ >> or
+BanA1 >> lexicon >> 0-31 >> \CONJ >> and
+BanA1 >> lexicon >> 0-31 >> \BY >> by
+BanA1 >> lexicon >> 0-31 >> \WERE >> were
+

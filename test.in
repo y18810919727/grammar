@@ -1,0 +1,7 @@
+BanA1 >> lexicon >> 0-01 >> B >> i 
+BanA1 >> lexicon >> 0-02 >> D >> am 
+BanA1 >> lexicon >> 0-03 >> E >> student 
+BanA1 >> syntax >> 1-02 >> A >> B C
+BanA1 >> syntax >> 1-03 >> C >> D E
+
+I am student 
