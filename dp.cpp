@@ -46,13 +46,13 @@ typedef vector<int> VI;
 typedef pair<int,int> PII;
 typedef vector< pair<int,int> > VPII;
 const ll mod=(ll)1e9+7;
-const ll maxn=(ll)1e5+7;
-const ll maxe=(ll)1e6+7;
+const ll maxn=(ll)2e2+7;
+const ll maxe=(ll)1e5+7;
 const ll INF=(ll)1e9+7;
 const double PI=acos(-1);
 int dx[4]={0,0,1,-1};
 int dy[4]={-1,1,0,0};
-
+const int TIME=10;
 ull HASH(vector<int> v)
 {
 	ull h=0;
@@ -66,7 +66,7 @@ struct Gar
 {
 	queue<int> que;
 	int cnt;
-	bool used[maxn];
+	bool used[maxe];
 	void init()
 	{
 		while(!que.empty()) que.pop();
@@ -130,11 +130,23 @@ struct Alp
 	}
 	void debug()
 	{
+		cout<<slist.size()<<"\n";
 		for(int i=0;i<slist.size();i++)
+		{
+			//cout<<i<<" "<<slist[i]<<" "<<isIN(slist[i])<<endl;
+			//printf("%d %s %d %s\n",i,slist[i].c_str(),isIN(slist[i]),"dfasdfas");
+			//printf("%s\n",slist[i].c_str());
+			//printf("%d\n",(int)slist[i].length());
 			cout<<i<<" "<<slist[i]<<" "<<slist[i].length()<<" "<<isIN(slist[i])<<endl;
+		}
 	}
 };
 Alp alp;
+void stringprt(string s)
+{
+	for(int i=0;i<s.length();i++)
+		cout<<i<<" "<<(int)s[i]<<" "<<s[i]<<endl;
+}
 //展开式数据结构
 struct E
 {
@@ -142,6 +154,12 @@ struct E
 	int left;
 	string Gid,Rid,part_name;
 	E(){}
+	E(int l)
+	{
+		left=l;
+		Rid=Gid="null";
+		part_name=alp.findstr(l);
+	}
 	E(string s)
 	{
 		istringstream istr;
@@ -161,15 +179,22 @@ struct E
 		{
 			istr>>buf;	
 			getline(istr,buf);
+			buf.erase(buf.find_last_not_of(13)+1);
 			buf.erase(buf.find_last_not_of(' ')+1);
 			vector<int> v;
 			p.push_back(alp.findID(buf.substr(1)));
 		}
 	}
+	bool operator <(const E &a) const
+	{
+		ull h1=HASH(p)*INF+left;
+		ull h2=HASH(a.p)*INF+a.left;
+		return h1<h2;
+	}
 	void debug()
 	{
 		cout<<Rid<<"\t";
-		cout<<left<<" "<<"\t";
+		cout<<left<<" "<<"\t"<<part_name<<"\t";
 		for(int i=0;i<p.size();i++)
 			cout<<p[i]<<" ";
 		cout<<endl;
@@ -188,10 +213,19 @@ struct Gra
 			resV.push_back(alp.findID(sl[i]));
 		//g[resV].push_back(alp.findID(s1));
 	}
+	vector<E> findGrabyLeft(int id)
+	{
+		vector<E> res;
+		for(int i=0;i<gramma.size();i++)
+		{
+			if(gramma[i].left==id) res.push_back(gramma[i]);
+		}
+		return res;
+	}
 	bool add(string s)
 	{
 		E e = E(s);
-		e.debug();
+		if(e.part_name!="lexicon"&&e.part_name!="syntax") return false;
 		if(g.find(e.p)==g.end()) 
 		{
 			vector<int> tmp;
@@ -200,7 +234,6 @@ struct Gra
 		g[e.p].push_back(gramma.size());
 		gramma.push_back(e);
 		p.push_back(make_pair(e.left,e.p));
-		if(e.part_name!="lexicon"&&e.part_name!="syntax") return false;
 		return true;
 		/*
 		istringstream istr;
@@ -276,13 +309,13 @@ struct Node
 		cout<<R_id<<endl;
 	}
 };
-Node tree[maxn];
-vector<int> G[maxn];
+Node tree[maxe];
+vector<int> G[maxe];
 Node newNode()
 {
 	return tree[gar.ask()];
 }
-string sents[maxn];
+string sents[maxe];
 void test()
 {
 	for(int i=0;i<5;i++)
@@ -329,13 +362,13 @@ void input()
 {
 	while(1)
 	{
-		char ss[1000];
+		char ss[1200];
 		string s=ss;
 		getline(cin,s);
-		//cout<<s<<endl;
-		if(s.length()==0||!gra.add(s)) break;
+		//printf("new string\n");
+		//cout<<s<<"\n"<<s.length()<<endl;
+		if(s.length()<=1||!gra.add(s)) break;
 	}
-	string sent;
 	int cnt=0;
 }
 void Del(int v)
@@ -482,11 +515,112 @@ void dfs(vector<int> v)
 	}
 	return ;
 }
+struct SP
+{
+	E g;
+	vector<pair<int,int> > split_p;
+	SP(){}
+	SP(E e,vector<pair<int,int> > pair_p)
+	{
+		g=e;
+		split_p=pair_p;
+	}
+	bool operator <(const SP &x) const
+	{
+		if(split_p.size()!=x.split_p.size()) return split_p.size()<x.split_p.size();
+		for(int i=0;i<split_p.size();i++)
+		{
+			pair<int,int> pair1=split_p[i];
+			pair<int,int> pair2=x.split_p[i];
+			if(pair1!=pair2) return pair1<pair2;
+		}
+		return g<x.g;
+	}
+};
+set<SP> dp[maxn][maxn][200];
+bool vs[maxn][maxn][200];
+void make_tree(int l,int r,int u,vector<pair<int,int> > &pv)
+{
+	if(vs[l][r][u]) return ;
+	vs[l][r][u]=true;
+	//cout<<l<<r<<u<<endl;
+	if(u==alp.findID("\\NP")) pv.push_back(make_pair(l,r));
+	set<SP>::iterator it = dp[l][r][u].begin();
+	while(it!=dp[l][r][u].end())
+	{
+		SP sp=*it;
+		E e=sp.g;
+		vector<pair<int,int> > v=sp.split_p;
+		for(int i=0;i<v.size();i++)	
+		{
+			make_tree(v[i].fi,v[i].se,e.p[i],pv);
+		}
+		it++;
+	}
+}
+vector<vector<pair<int,int> > > seg_split(int l,int r,int t)
+{
+	vector<vector<pair<int,int> > > res;
+	if(t>r-l+1) return res;
+	if(t==1)
+	{
+		vector<pair<int,int> > s(1,make_pair(l,r));
+		res.push_back(s);
+		return res;
+	}
+	for(int i=l+1;i<=r;i++)
+	{
+		vector<vector<pair<int,int> > > pre=seg_split(l,i-1,t-1);
+		for(int j=0;j<pre.size();j++)
+		{
+			pre[j].push_back(make_pair(i,r));
+			res.push_back(pre[j]);
+		}
+	}
+	return res;
+}
+
+void update(int n,int m)
+{
+	for(int i=1;i<=n;i++)
+	{
+		for(int j=i;j<=n;j++)
+		{
+			for(int k=0;k<m;k++)
+			{
+				vector<E> glist=gra.findGrabyLeft(k);		
+				for(int l=0;l<glist.size();l++)
+				{
+					E e =glist[l];	
+					vector<vector<pair<int,int> > > splist=seg_split(i,j,e.p.size());
+					for(int t=0;t<splist.size();t++)
+					{
+						bool yes=true;
+						for(int h=0;h<splist[t].size();h++)
+						{
+							pair<int,int> p=splist[t][h];
+							if(dp[p.fi][p.se][e.p[h]].size()==0)
+								yes=false;
+						}
+						if(yes)
+						{
+							int si=dp[i][j][k].size();
+							dp[i][j][k].insert(SP(e,splist[t]));
+	//						if(dp[i][j][k].size()>si)
+	//						cout<<"new one"<<i<<" "<<j<<" "<<k<<endl;
+						}
+					}
+				}
+			}
+		}
+	}
+}
 void solve(string s)
 {
 	s[0]+=('a'-'A');
 	vector<int> splitRes=splitSent(s);
-	cout<<s<<endl;
+	cout<<s<<endl<<endl;
+	/*	
 	for(int i=0;i<splitRes.size();i++)
 	{
 		cout<<splitRes[i]<<" ";
@@ -494,10 +628,58 @@ void solve(string s)
 	cout<<endl;
 	for(int i=0;i<splitRes.size();i++)
 	{
-		cout<<alp.findstr(splitRes[i])<<" ";
+		cout<<i+1<<" "<<alp.findstr(splitRes[i])<<"\n";
 	}
 	cout<<endl;
+	*/
 	vector<int> v;
+	int n=splitRes.size();
+	for(int i=1;i<=n;i++)
+	{
+		E e=E(splitRes[i-1]);	
+		vector< pair<int,int> > ptmp;
+		dp[i][i][splitRes[i-1]].insert(SP(e,ptmp));
+	//	cout<<"new one"<<i<<" "<<i<<" "<<splitRes[i-1]<<endl;
+		for(int j=0;j<alp.slist.size();j++)
+		{
+			vector<E> glist=gra.findGrabyLeft(j);		
+			for(int k=0;k<glist.size();k++)
+			{
+				E e =glist[k];
+				if(e.p.size()==1&&e.p[0]==splitRes[i-1])
+				{
+					vector<pair<int,int> > p(1,make_pair(i,i));
+					dp[i][i][j].insert(SP(e,p));
+			//		cout<<"new one"<<i<<" "<<i<<" "<<k<<endl;
+					//cout<<i<<" "<<j<<endl;
+				}
+			}
+		}
+	}
+	int T=TIME;
+	while(T--)
+	{
+	//	cout<<"Round"<<" "<<TIME-T<<endl;
+	//	cout<<"----------------"<<endl;;
+		update(n,alp.slist.size());
+	//	cout<<"----------------"<<endl;;
+	}
+	vector<pair<int,int> > pv;
+	make_tree(1,n,alp.findID("\\S"),pv);
+	cout<<"-------------------------------\\NP-------------------------------"<<endl;
+	printf("%d NP can be found.\n\n",(int)pv.size());
+	for(int i=0;i<pv.size();i++)
+	{
+		string s="";
+		for(int j=pv[i].fi;j<=pv[i].se;j++)
+		{
+			s+=alp.findstr(splitRes[j-1]);
+			if(j!=pv[i].se) s+=" ";
+		}
+		cout<<s<<endl;
+	}
+	cout<<"-------------------------------\\NP END-------------------------------"<<endl;
+	return ;
 	for(int i=0;i<splitRes.size();i++)
 	{
 		int Nid=gar.ask();
@@ -531,9 +713,15 @@ void init()
 	SET_vis.clear();
 	gar.init();
 	tree_num=100;
-	for(int i=0;i<maxn;i++)
+	for(int i=0;i<maxe;i++)
 		G[i].clear();
-	
+	for(int i=0;i<maxn;i++)
+	{
+		for(int j=0;j<maxn;j++)
+			for(int k=0;k<200;k++)
+				dp[i][j][k].clear();
+	}
+	memset(vs,false,sizeof(vs));
 }
 void run()
 {
@@ -543,7 +731,11 @@ void run()
 	{
 		init();
 		getline(cin,s);
+		cout<<"#################################################################"<<endl;
+		//cout<<s<<endl;
 		solve(s);
+		cout<<"###############################END###############################"<<endl;
+		cout<<endl;
 	}
 }
 void deg()
@@ -553,7 +745,6 @@ void deg()
 	{
 		if(s.find(gra.gramma[i].p)!=s.end())
 		{
-			printf("FUCK");
 			for(int j=0;j<gra.gramma[i].p.size();j++)
 				cout<<gra.gramma[i].p[j]<<" ";
 			cout<<endl;
@@ -562,13 +753,24 @@ void deg()
 		s.insert(gra.gramma[i].p);
 	}
 }
+void test_split()
+{
+	vector<vector<pair<int,int> > > ss=seg_split(1,5,6);
+	for(int i=0;i<ss.size();i++)
+	{
+		for(int j=0;j<ss[i].size();j++)
+			cout<<ss[i][j].fi<<" "<<ss[i][j].se<<"   ";
+		cout<<endl;
+	}
+}
 int main()
 {
     //freopen("test.in","r",stdin);
-    //freopen("out.txt","w",stdout);
+    freopen("out.txt","w",stdout);
    	input();
 //	gra.debug();
-	alp.debug();
+//	alp.debug();
+	//test_split();
 	//deg();
 	run();
     return 0;

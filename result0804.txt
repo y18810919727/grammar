@@ -1,0 +1,82 @@
+#################################################################
+characteristic transformation temperatures were determined using electrical resistivity measurements or a DuPont thermal analyser . 
+
+-------------------------------\NP-------------------------------
+3 NP can be found.
+
+electrical resistivity measurements or a DuPont thermal analyser 
+electrical resistivity measurements 
+a DuPont thermal analyser 
+-------------------------------\NP END-------------------------------
+
+###############################END###############################
+
+
+
+
+
+#################################################################
+After annealing at 850176C and quenching in water of 55176C specimens were cut out using a spark erosion machine . 
+-------------------------------\NP-------------------------------
+16 NP can be found.
+
+annealing 
+850176C and quenching 
+850176C 
+quenching 
+water 
+55176C 
+a spark erosion machine 
+water of 55176C 
+850176Candquenchinginwater
+quenching in water 
+850176Candquenchinginwaterof55176C
+quenching in water of 55176C 
+annealing at 850176C and quenching 
+annealing at 850176C 
+annealing at 850176C and quenching in water 
+annealing at 850176C and quenching in water of 55176C 
+-------------------------------\NP END-------------------------------
+
+###############################END###############################
+
+
+
+#################################################################
+Single crystals in the shape of rods of 8 mm diameter and 80 mm length were prepared using the Bridgman method . 
+-------------------------------\NP-------------------------------
+15 NP can be found.
+
+the shape of rods of 8 mm diameter and 80 mm length 
+the shape of rods of 8 mm diameter 
+the shape 
+rods of 8 mm diameter 
+8 mm diameter 
+rods
+the shape of rods 
+80 mm length 
+rods of 8 mm diameter and 80 mm length 
+8 mm diameterand80 mm length
+single crystals in the shape of rods of 8 mm diameter 
+single crystals 
+single crystals in the shape 
+single crystals in the shape of rods 
+the Bridgman method 
+-------------------------------\NP END-------------------------------
+###############################END###############################
+
+
+#################################################################
+Copper alloys containing 20.8 at.% Al and 9.5 at.% Mn were made .
+-------------------------------\NP-------------------------------
+5 NP can be found.
+
+20.8 at.% Al and 9.5 at.% Mn 
+20.8 at.% Al 
+9.5 at.% Mn 
+copper alloyscontaining20.8 at.% Al
+copper alloys 
+-------------------------------\NP END-------------------------------
+###############################END###############################
+
+

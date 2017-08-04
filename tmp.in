@@ -33,23 +33,20 @@ BanA1 >>  syntax >>  1-02 >>  \S >> \ADP \S
 BanA1 >>  syntax >>  1-03 >>  \S >> \NP[+PL] \VP[+FIN,+PL]
 BanA1 >>  syntax >>  1-04 >>  \VP[+FIN,+PL] >> were \VP[PAS]
 BanA1 >>  syntax >>  1-05 >>  \VP[PAS] >> \Vt[PAS]
-BanA1 >>  syntax >>  1-06 >>  \VP[PAS] >> \VP[PAS] \ADP
+BanA1 >>  syntax >>  1-06 >>  \VP[PAS] >> \Vt[PAS] \ADP
 BanA1 >>  syntax >>  1-07 >>  \VP[PAS] >> \VP[PAS] \NPby
 BanA1 >>  syntax >>  1-08 >>  \ADP >> \AD
-BanA1 >>  syntax >>  1-09 >>  \ADP >> \VgP
+BanA1 >>  syntax >>  1-09 >>  \ADP >> \Vt[G] \NP
 BanA1 >>  syntax >>  1-10 >>  \ADP >> \PREP \NP
 BanA1 >>  syntax >>  1-11 >>  \NPby >> by \NP
 BanA1 >>  syntax >>  1-12 >>  \NP[+PL] >> \NP[+PL] \AP
-BanA1 >>  syntax >>  1-13 >>  \NP[+PL] >> \NP and \NP
-BanA1 >>  syntax >>  1-14 >>  \AP >> \VgP
-BanA1 >>  syntax >>  1-15 >>  \AP >> \PREP \NP
-BanA1 >>  syntax >>  1-16 >>  \NP >> \NP or \NP
-BanA1 >>  syntax >>  1-17 >>  \NP >> \NP \AP
-BanA1 >>  syntax >>  1-18 >>  \NP >> \NP[+PL]
-BanA1 >>  syntax >>  1-19 >>  \NP >> \VgP
-BanA1 >>  syntax >>  1-20 >>  \VgP >> \VgP \ADP
-BanA1 >>  syntax >>  1-21 >>  \VgP >> \Vi[G]
-BanA1 >>  syntax >>  1-22 >>  \VgP >> \Vt[G] \NP
+BanA1 >>  syntax >>  1-13 >>  \AP >> \Vt[G] \NP
+BanA1 >>  syntax >>  1-14 >>  \AP >> \PREP \NP
+BanA1 >>  syntax >>  1-15 >>  \NP >> \NP or \NP
+BanA1 >>  syntax >>  1-16 >>  \NP >> \NP \AP
+BanA1 >>  syntax >>  1-17 >>  \NP >> \NP[+PL]
+BanA1 >>  syntax >>  1-18 >>  \NP >> \Vi[G]
+BanA1 >>  syntax >>  1-19 >>  \NP[+PL] >> \NP and \NP
 
 Single crystals in the shape of rods of 8 mm diameter and 80 mm length were prepared using the Bridgman method . 
 Copper alloys containing 20.8 at.% Al and 9.5 at.% Mn were made .
